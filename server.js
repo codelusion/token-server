@@ -9,7 +9,21 @@ var options = {
 
 var server = restify.createServer(options);
 
+server.use(restify.bodyParser());
+
 module.exports = server;
+
+
+////enable logging via bunyan
+//var bunyan = require('bunyan');
+//server.on('after', restify.auditLogger({
+//    log: bunyan.createLogger({
+//        name: 'oauth2-server',
+//        stream: process.stdout
+//    })
+//}));
+//
+require('./routes');
 
 
 
