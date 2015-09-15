@@ -11,8 +11,10 @@
     "oauth2"
   ],
   "author": "codelusional",
-  "license": "All Rights Reserved",
+  "license": "CC-BY-SA-4.0",
   "dependencies": {
+    "bunyan": "^1.5.1",
+    "joi": "^6.7.0",
     "node-uuid": "^1.4.3",
     "restify": "^4.0.2"
   },
