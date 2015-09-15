@@ -1,17 +1,25 @@
 {
-  "name": "poc",
+  "name": "oauth2-server",
   "version": "1.0.0",
   "description": "proof of concept",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [
-    "poc"
+    "oauth2"
   ],
-  "author": "aisaac",
-  "license": "ISC",
+  "author": "codelusional",
+  "license": "All Rights Reserved",
   "dependencies": {
-    "node-uuid": "^1.4.3"
-  }
+    "node-uuid": "^1.4.3",
+    "restify": "^4.0.2"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/dataworx/oauth2-server.git"
+  },
+  "homepage": "https://bitbucket.org/dataworx/oauth2-server#readme"
 }
