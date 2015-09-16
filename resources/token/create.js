@@ -8,11 +8,14 @@ var util = require('./util');
 module.exports = function createToken(req, res, next) {
     validate.isValid(req.params, function(err, value) {
         if (err === null ) {
+            var expires = new Date();
+            expires.setDate(new Date().getDate() + 365);
             var token =                 {
                 'apiId' : uuid.v4(),
                 'apiSecret': uuid.v4(),
                 'study': value.study,
-                'resource': value.resource
+                'resource': value.resource,
+                'expires': expires
             };
             datastore.persist(token, function(err, token) {
                 if (err) {

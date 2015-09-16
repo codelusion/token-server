@@ -17,6 +17,7 @@ function prune(token) {
         'apiId' : token.apiId,
         'apiSecret' : token.apiSecret,
         'study': token.study,
-        'resource': token.resource
+        'resource': token.resource,
+        'expires': token.expires
     };
 }

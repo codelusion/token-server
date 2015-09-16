@@ -23,7 +23,8 @@ var Token = mongoose.model('Token', {
 	study: String,
 	resource: String,
 	apiId: String,
-	apiSecret: String
+	apiSecret: String,
+	expires: Date
 	});
 
 module.exports.persist = function persist(data, callback) {
