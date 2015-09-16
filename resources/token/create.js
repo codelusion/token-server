@@ -3,6 +3,7 @@
 var uuid = require('node-uuid');
 var datastore = require('./../datastore');
 var validate = require('./validate');
+var util = require('./util');
 
 module.exports = function createToken(req, res, next) {
     validate.isValid(req.params, function(err, value) {
@@ -18,7 +19,7 @@ module.exports = function createToken(req, res, next) {
                     console.error(err);
                     res.send(500,  {'code': 'DatabaseError', 'message': 'A database error occurred'})
                 } else {
-                    res.send(token);
+                    res.send(util.format(token));
                 }
             });
         } else {

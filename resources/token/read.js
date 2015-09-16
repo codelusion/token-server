@@ -2,6 +2,7 @@
 
 var validate = require('./validate');
 var datastore = require('./../datastore');
+var util = require('./util');
 
 module.exports = function getToken(req, res, next) {
     validate.isValid(req.params, function(err, value) {
@@ -12,7 +13,7 @@ module.exports = function getToken(req, res, next) {
                     res.send(500, {'code': 'DataBaseError', 'message': 'A database error occurred'});
                 } else {
                     if (tokens.length) {
-                        res.send(tokens);
+                        res.send(util.format(tokens));
                     } else {
                         res.send(404, {'code': 'NotFound', 'message': 'Resource was not found'});                           
                     }
