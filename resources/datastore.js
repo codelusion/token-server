@@ -2,32 +2,30 @@
 var config = require('./../config');
 var mongoose = require('mongoose');
 
-function connect() {
-mongoose.connect('mongodb://' + 
-					config.db.user + ':' + 
-					config.db.password + '@' +
-					config.db.server + ':' + 
-					config.db.port + '/' + 
-					config.db.database
-				);	
-}
+mongoose.connect('mongodb://' +
+	config.db.user + ':' +
+	config.db.password + '@' +
+	config.db.server + ':' +
+	config.db.port + '/' +
+	config.db.database
+);
 
-
-var Token = mongoose.model('Token', { 
+var Token = mongoose.model('Token', {
 	study: String,
 	resource: String,
-	id: String,
-	secret: String
+	apiId: String,
+	apiSecret: String
 	});
 
-module.exports.persist = function persist(data) {
+module.exports.persist = function persist(data, callback) {
     var token = new Token(data);
 	token.save(function(err){
 		if (err) {
 			console.error(err);
-			return null;
-		} 
-		return token;	
+			callback(err, null);
+		} else {
+			callback(null, token);
+		}
 	});
 };
 
@@ -35,16 +33,18 @@ module.exports.remove = function remove(data, callback) {
 	Token.findOneAndRemove(data, function(err, token){
 		if (err) {
 			callback(err, null);
-		} 
-		callback(null, token)
+		} else {
+			callback(null, token)
+		}
 	});
 };
 
 module.exports.locate = function locate(data, callback) {
-    Token.findOne(data, function (err, token) {
+    Token.find(data, function (err, tokens) {
 		if (err) {
 			callback(err, null);
+		} else {
+			callback(null, tokens);
 		}
-		callback(null, token);
 	});
 };

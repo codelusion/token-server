@@ -8,8 +8,8 @@ module.exports = function createToken(req, res, next) {
     validate.isValid(req.params, function(err, value) {
         if (err === null ) {
             var token =                 {
-                'id' : uuid.v4(),
-                'secret': uuid.v4(),
+                'apiId' : uuid.v4(),
+                'apiSecret': uuid.v4(),
                 'study': value.study,
                 'resource': value.resource
             };
