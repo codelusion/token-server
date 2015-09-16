@@ -1,14 +1,23 @@
 'use strict';
 var config = require('./../config');
 var mongoose = require('mongoose');
-
-mongoose.connect('mongodb://' +
-	config.db.user + ':' +
-	config.db.password + '@' +
-	config.db.server + ':' +
-	config.db.port + '/' +
-	config.db.database
-);
+var db = config.db.local;
+//var db = config.db.remote;
+if (db.user) {
+    mongoose.connect('mongodb://' +
+        db.user + ':' +
+        db.password + '@' +
+        db.server + ':' +
+        db.port + '/' +
+        db.database
+    );
+} else {
+    mongoose.connect('mongodb://' +
+        db.server + ':' +
+        db.port + '/' +
+        db.database
+    );
+}
 
 var Token = mongoose.model('Token', {
 	study: String,
