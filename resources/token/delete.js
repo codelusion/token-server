@@ -6,7 +6,7 @@ var datastore = require('./../datastore');
 module.exports = function deleteToken(req, res, next) {
     validate.isValid(req.params, function(err, value) {
         if (err === null ) {
-            var key = value.study + '.' + value.resource;
+            var key = {study: value.study, resource: value.resource};
             datastore.locate(key,function(err, token) {
                if (err) {
                    res.send(404, {'code': 'NotFound', 'message': 'Resource not found'});

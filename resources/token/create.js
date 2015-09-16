@@ -13,9 +13,14 @@ module.exports = function createToken(req, res, next) {
                 'study': value.study,
                 'resource': value.resource
             };
-            var key = value.study + '.' + value.resource;
-            datastore.persist(key, token);
-            res.send(token);
+            datastore.persist(token, function(err, token) {
+                if (err) {
+                    console.error(err);
+                    res.send(500,  {'code': 'DatabaseError', 'message': 'A database error occurred'})
+                } else {
+                    res.send(token);
+                }
+            });
         } else {
             res.send(400, {'code': 'InvalidParams', 'message': 'Expected parameters not found'});
         }
