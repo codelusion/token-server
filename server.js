@@ -3,7 +3,7 @@
 var restify = require('restify');
 
 var options = {
-    name: 'oauth2-token-server',
+    name: 'token-server',
     version: '0.1.0'
 };
 
@@ -14,11 +14,11 @@ server.use(restify.bodyParser());
 module.exports = server;
 
 
-////enable logging via bunyan
+//enable logging via bunyan
 //var bunyan = require('bunyan');
 //server.on('after', restify.auditLogger({
 //    log: bunyan.createLogger({
-//        name: 'oauth2-server',
+//        name: 'token-server',
 //        stream: process.stdout
 //    })
 //}));
