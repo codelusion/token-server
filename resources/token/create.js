@@ -11,7 +11,7 @@ module.exports = function createToken(req, res, next) {
             var expires = new Date();
             expires.setDate(new Date().getDate() + 365);
             var token =                 {
-                'apiId' : uuid.v4(),
+                'apiId' : getApiId(),
                 'apiSecret': uuid.v4(),
                 'study': value.study,
                 'resource': value.resource,
@@ -31,3 +31,8 @@ module.exports = function createToken(req, res, next) {
     });
     next();
 };
+
+function getApiId() {
+    var min = 10000, max = 999999999;
+    return 'ws' + Math.floor(Math.random() * (max - min)) + min;
+}
