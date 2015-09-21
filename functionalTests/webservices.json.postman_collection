@@ -5,6 +5,16 @@
 	"order": [],
 	"folders": [
 		{
+			"id": "8fba9ee2-38a6-e70a-11e1-743eeb8f716c",
+			"name": "auth-proxy",
+			"description": "",
+			"order": [
+				"9f2e1fc6-f6df-168f-0f5d-0e2bdcb4113d",
+				"31ed8001-542a-c943-e3f1-0eec301ee4ff"
+			],
+			"owner": 0
+		},
+		{
 			"id": "df6a179b-c411-ebcc-4f98-042fbc186376",
 			"name": "token-server",
 			"description": "",
@@ -43,6 +53,27 @@
 			"collectionId": "8ba7cfe1-ff19-abee-3a72-7849b5724413",
 			"responses": [],
 			"rawModeData": ""
+		},
+		{
+			"id": "31ed8001-542a-c943-e3f1-0eec301ee4ff",
+			"headers": "Authorization: Bearer ws24856169810000:9a974d60-7950-4780-a667-60a5fbdba072\n",
+			"url": "localhost:3000/registration",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "GET",
+			"collectionId": "8ba7cfe1-ff19-abee-3a72-7849b5724413",
+			"data": [],
+			"dataMode": "params",
+			"name": "GET  api/tokens (expired)",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1442849918954,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "8fba9ee2-38a6-e70a-11e1-743eeb8f716c"
 		},
 		{
 			"id": "6c521c12-1989-7697-45e8-9a50419bbd0e",
@@ -87,6 +118,25 @@
 			"rawModeData": "{\"study\":\"Novartis\", \"resource\":\"forms\"}"
 		},
 		{
+			"id": "9f2e1fc6-f6df-168f-0f5d-0e2bdcb4113d",
+			"headers": "Authorization: Bearer ws24856169810000:9a974d60-7950-4780-a667-60a5fbdba072\nX-Forwarded-For: 111.222.333.444\n",
+			"url": "localhost:3000/adverseEvents",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1442851474764,
+			"name": "GET proxy",
+			"description": "",
+			"collectionId": "8ba7cfe1-ff19-abee-3a72-7849b5724413",
+			"responses": []
+		},
+		{
 			"id": "a41551c0-cda4-4af5-6bd9-c1ddd8a15083",
 			"headers": "Content-Type: application/json\n",
 			"url": "localhost:8000/api/tokens/Novartis/forms",
@@ -108,8 +158,8 @@
 		},
 		{
 			"id": "a5e36fb0-4b43-c784-e76c-2f4b13e53769",
-			"headers": "Content-Type: application/json\n",
-			"url": "localhost:8000/api/tokens/Novartis/forms",
+			"headers": "Authorization: Bearer ws20327464510000:3d4a1aff-d24a-4cc7-83fa-76e56f659513\n",
+			"url": "localhost:3000/registration",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
@@ -119,12 +169,11 @@
 			"tests": "",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1442665592776,
+			"time": 1442849936896,
 			"name": "GET  api/tokens",
 			"description": "",
 			"collectionId": "8ba7cfe1-ff19-abee-3a72-7849b5724413",
-			"responses": [],
-			"folder": "df6a179b-c411-ebcc-4f98-042fbc186376"
+			"responses": []
 		}
 	]
 }
