@@ -2,11 +2,23 @@
 
 var Joi = require('joi');
 
-var tokenParamsSchema = Joi.object().keys({
+var createClientWithTokenParamsSchema = Joi.object().keys({
     'resource': Joi.string().min(3).max(255).required(),
     'study': Joi.string().min(3).max(255).required()
 });
 
-module.exports.isValid = function(data, callback) {
-    Joi.validate(data, tokenParamsSchema, callback);
+var createTokenForClientParamsSchema = Joi.object().keys({
+    'resource': Joi.string().min(3).max(255).required(),
+    'study': Joi.string().min(3).max(255).required(),
+    'clientId': Joi.string().min(3).max(255).required()
+});
+
+
+module.exports.isValidStudyResource = function(data, callback) {
+    Joi.validate(data, createClientWithTokenParamsSchema, callback);
+};
+
+
+module.exports.isValidStudyResourceClient = function(data, callback) {
+    Joi.validate(data, createTokenForClientParamsSchema, callback);
 };

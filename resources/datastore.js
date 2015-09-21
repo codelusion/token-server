@@ -22,8 +22,8 @@ if (db.user) {
 var Token = mongoose.model('Token', {
 	study: String,
 	resource: String,
-	apiId: String,
-	apiSecret: String,
+	clientId: String,
+	clientSecret: String,
 	expires: Date
 	});
 
@@ -39,7 +39,7 @@ module.exports.persist = function persist(data, callback) {
 	});
 };
 
-module.exports.remove = function remove(data, callback) {
+module.exports.removeOne = function remove(data, callback) {
 	Token.findOneAndRemove(data, function(err, token){
 		if (err) {
 			callback(err, null);
@@ -48,6 +48,17 @@ module.exports.remove = function remove(data, callback) {
 		}
 	});
 };
+
+module.exports.removeAll = function remove(data, callback) {
+	Token.remove(data, function(err, token){
+		if (err) {
+			callback(err, null);
+		} else {
+			callback(null, token)
+		}
+	});
+};
+
 
 module.exports.locate = function locate(data, callback) {
     Token.find(data, function (err, tokens) {

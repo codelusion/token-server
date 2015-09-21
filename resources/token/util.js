@@ -14,8 +14,8 @@ module.exports.format = function format(tokens){
 
 function prune(token) {
     return {
-        'apiId' : token.apiId,
-        'apiSecret' : token.apiSecret,
+        'clientId' : token.clientId,
+        'clientSecret' : token.clientSecret,
         'study': token.study,
         'resource': token.resource,
         'expires': token.expires
