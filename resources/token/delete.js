@@ -32,7 +32,7 @@ function deleteToken(req, res, next) {
 function processRequest(err, res, key) {
     if (err === null) {
         datastore.locate(key, function (err, token) {
-            if (err) {
+            if (err || !token) {
                 res.send(404, {'code': 'NotFound', 'message': 'Resource not found'});
             } else {
                 datastore.removeAll(key, function (err, token) {

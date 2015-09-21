@@ -20,7 +20,10 @@
     "node-uuid": "^1.4.3",
     "restify": "^4.0.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "mongodb": "^2.0.43",
+    "superagent": "^1.4.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@bitbucket.org/dataworx/oauth2-server.git"

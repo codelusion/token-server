@@ -50,11 +50,11 @@ module.exports.removeOne = function remove(data, callback) {
 };
 
 module.exports.removeAll = function remove(data, callback) {
-	Token.remove(data, function(err, token){
+	Token.remove(data, function(err, tokenCount){
 		if (err) {
 			callback(err, null);
 		} else {
-			callback(null, token)
+			callback(null, tokenCount)
 		}
 	});
 };
