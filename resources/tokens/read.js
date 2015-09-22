@@ -1,7 +1,7 @@
 'use strict';
 
 var validate = require('./validate');
-var datastore = require('./../datastore');
+var datastore = require('./datastore');
 var util = require('./util');
 
 module.exports = function read(req, res, next) {

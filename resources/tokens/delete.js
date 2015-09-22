@@ -1,7 +1,7 @@
 'use strict';
 
 var validate = require('./validate');
-var datastore = require('./../datastore');
+var datastore = require('./datastore');
 
 module.exports = function del(req, res, next) {
     if (req.params.clientId) {

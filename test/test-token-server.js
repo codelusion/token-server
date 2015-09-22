@@ -3,6 +3,7 @@
 var assert = require('assert');
 var request = require('superagent');
 var child = require('child_process');
+var config = require('./../config');
 
 describe('/api/tokens', function(){
     var mongoProcess = null;
@@ -10,13 +11,18 @@ describe('/api/tokens', function(){
     var testToken = {};
 
     before(function() {
-        mongoProcess = child.spawn('mongod');
+        if (config.db.env === 'local') {
+            mongoProcess = child.spawn('mongod');
+        }
         server.listen(8000);
     });
 
     after(function() {
         server.close();
-        mongoProcess.kill('SIGTERM');
+        if (config.db.env === 'local' && mongoProcess) {
+            mongoProcess.kill('SIGTERM');
+        }
+
     });
 
     it('should throw error "MethodNotAllowed" on GET /api/tokens', function(done) {

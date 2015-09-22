@@ -1,7 +1,7 @@
 'use strict';
 
 var uuid = require('node-uuid');
-var datastore = require('./../datastore');
+var datastore = require('./datastore');
 var validate = require('./validate');
 var util = require('./util');
 
