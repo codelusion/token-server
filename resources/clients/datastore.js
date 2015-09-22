@@ -1,46 +1,46 @@
 'use strict';
 
-var Token = require('../schema').TokenSchema;
+var Client = require('../schema').ClientSchema;
 
 module.exports.persist = function persist(data, callback) {
-    var token = new Token(data);
-	token.save(function(err){
+    var client = new Client(data);
+	client.save(function(err){
 		if (err) {
 			console.error(err);
 			callback(err, null);
 		} else {
-			callback(null, token);
+			callback(null, client);
 		}
 	});
 };
 
 module.exports.removeOne = function remove(data, callback) {
-	Token.findOneAndRemove(data, function(err, token){
+	Client.findOneAndRemove(data, function(err, client){
 		if (err) {
 			callback(err, null);
 		} else {
-			callback(null, token)
+			callback(null, client)
 		}
 	});
 };
 
 module.exports.removeAll = function remove(data, callback) {
-	Token.remove(data, function(err, tokenCount){
+	Client.remove(data, function(err, clientCount){
 		if (err) {
 			callback(err, null);
 		} else {
-			callback(null, tokenCount)
+			callback(null, clientCount)
 		}
 	});
 };
 
 
 module.exports.locate = function locate(data, callback) {
-    Token.find(data, function (err, tokens) {
+    Client.findOne(data, function (err, clients) {
 		if (err) {
 			callback(err, null);
 		} else {
-			callback(null, tokens);
+			callback(null, clients);
 		}
 	});
 };

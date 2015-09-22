@@ -1,4 +1,4 @@
-var mongoDB = require('./mongo-connect');
-mongoDB.connect();
+require('./mongo-connect').connect();
+
 exports.tokens = require('./tokens');
-//exports.tokens = require('./clients');
+exports.clients = require('./clients');

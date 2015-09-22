@@ -35,16 +35,13 @@ describe('/api/tokens', function(){
     });
 
     it("should create a token for a new client", function (done) {
-        request.post('http://localhost:8000/api/tokens')
+        request.post('http://localhost:8000/api/clients')
             .set('Content-Type', 'application/json')
-            .send({study: "testStudy", resource: "testResource"})
+            .send({name: "testClient"})
             .end(function (err, res) {
                 assert.equal(res.status, 200);
-                testToken = res.body;
-                assert.equal(res.body.study, "testStudy");
-                assert.equal(res.body.resource, "testResource");
+                assert.equal(res.body.name, "testClient");
                 assert.notEqual(res.body.clientId, null);
-                assert.notEqual(res.body.clientSecret, null);
                 done();
             });
     });
