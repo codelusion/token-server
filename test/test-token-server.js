@@ -34,7 +34,7 @@ describe('/api/tokens', function(){
         });
     });
 
-    it("should create a token for a new client", function (done) {
+    it("should create a new client", function (done) {
         request.post('http://localhost:8000/api/clients')
             .set('Content-Type', 'application/json')
             .send({name: "testClient"})
